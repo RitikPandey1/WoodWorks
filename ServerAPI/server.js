@@ -20,9 +20,9 @@ dotenv.config({ path: "./config.env" });
 
 app.use(express.json());
 //routes
-const initial = "/woodworks/api";
-app.post(`${initial}/register`, registerUser);
-app.post(`${initial}/login`, login);
+
+app.post("/user/register", registerUser);
+app.post("/user/login", login);
 
 app.listen(process.env.PORT, () =>
   console.log(`-- server running PORT:${process.env.PORT} ....`)
