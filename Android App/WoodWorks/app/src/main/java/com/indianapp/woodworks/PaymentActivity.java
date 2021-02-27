@@ -60,10 +60,10 @@ public class PaymentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-        card=findViewById(R.id.cardNum);
-        cvv=findViewById(R.id.cvv);
-        pincode=findViewById(R.id.pincode);
-        date=findViewById(R.id.expdate);
+//        card=findViewById(R.id.cardNum);
+//        cvv=findViewById(R.id.cvv);
+//        pincode=findViewById(R.id.pincode);
+//        date=findViewById(R.id.expdate);
         pay=findViewById(R.id.pay);
         stripe = new Stripe(
                 getApplicationContext(),
@@ -71,10 +71,10 @@ public class PaymentActivity extends AppCompatActivity {
         );
     }
     private void startCheckout() {
-        card=findViewById(R.id.cardNum);
-        cvv=findViewById(R.id.cvv);
-        pincode=findViewById(R.id.pincode);
-        date=findViewById(R.id.expdate);
+//        card=findViewById(R.id.cardNum);
+//        cvv=findViewById(R.id.cvv);
+//        pincode=findViewById(R.id.pincode);
+//        date=findViewById(R.id.expdate);
         // Create a PaymentIntent by calling the server's endpoint.
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         double amount = Double.valueOf(20) * 100;

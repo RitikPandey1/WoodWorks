@@ -6,57 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".PaymentActivity">
 
-    <EditText
-        android:id="@+id/cardNum"
+
+    <com.stripe.android.view.CardNumberEditText
+        android:id="@+id/cardNumberEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="94dp"
-        android:ems="10"
-        android:hint="card number"
-        android:inputType="number"
+        android:layout_marginTop="36dp"
+        android:hint="1234 1234 1234 1234"
+        android:maxLength="20"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/cvv"
+    <com.stripe.android.view.CvcEditText
+        android:id="@+id/cvcEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="97dp"
-        android:ems="10"
-        android:hint="cvv"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardNum" />
+        android:layout_marginTop="15dp"
 
-    <EditText
-        android:id="@+id/expdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="99dp"
-        android:ems="10"
-        android:hint="expiry date"
-        android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvv" />
+        app:layout_constraintTop_toBottomOf="@+id/cardNumberEditText" />
 
-    <EditText
-        android:id="@+id/pincode"
+    <com.stripe.android.view.ExpiryDateEditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="138dp"
-        android:ems="10"
-        android:hint="pincode"
-        android:inputType="number|textPostalAddress"
+        android:layout_marginTop="126dp"
+        android:hint="MM/YY"
+        android:maxLength="5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expdate" />
+        app:layout_constraintTop_toBottomOf="@+id/cvcEditText" />
 
     <Button
         android:id="@+id/pay"

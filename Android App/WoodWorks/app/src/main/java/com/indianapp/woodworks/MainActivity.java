@@ -11,6 +11,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     Intent intent;
     SharedPreferences preferences;
+    String token;
     public void setDefaults(String key, String value) {
         preferences = this.getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -35,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        token=getDefaults("_id");
+        if(!token.equals("null")){
+            intent = new Intent(getApplicationContext(),FragmentActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
     public void signup(View view){
         intent = new Intent(getApplicationContext(),SignupActivity.class);
