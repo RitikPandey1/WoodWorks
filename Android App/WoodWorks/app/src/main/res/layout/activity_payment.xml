@@ -11,7 +11,7 @@
         android:id="@+id/cardNumberEditText"
         android:layout_width="wrap_content"
         android:layout_height="52dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="150dp"
         android:background="@drawable/custom_input_logo"
         android:drawableLeft="@drawable/ic_credit_card"
         android:drawablePadding="10dp"
@@ -19,55 +19,94 @@
         android:inputType="number"
         android:maxLength="20"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.stripe.android.view.ExpiryDateEditText
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:background="@drawable/custom_input"
-        android:hint="MM/YY"
-        android:inputType="number"
-        android:maxLength="5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.53"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2" />
-
-    <Button
-        android:id="@+id/pay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="153dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginBottom="69dp"
-        android:text="Pay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextNumber2"
-        android:layout_width="wrap_content"
-        android:layout_height="52dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="79dp"
-        android:background="@drawable/custom_input"
-        android:ems="5"
-        android:hint="Pincode"
-        android:inputType="number"
-        android:maxLength="6"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardNumberEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <EditText
         android:id="@+id/editTextNumber3"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/custom_input_logo"
-        android:ems="10"
+        android:drawableLeft="@drawable/ic_credit_card_with_cvv_code"
+        android:drawablePadding="10dp"
+        android:ems="6"
+        android:hint="CVC"
         android:inputType="number"
-        tools:layout_editor_absoluteX="72dp"
-        tools:layout_editor_absoluteY="113dp" />
+        app:layout_constraintStart_toStartOf="@+id/cardNumberEditText"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumberEditText" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_input"
+        android:ems="10"
+        android:hint="Card holder's Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/expiryDateEditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumber3"
+        app:layout_constraintTop_toBottomOf="@+id/expiryDateEditText" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_input"
+        android:ems="6"
+        android:hint="Pincode"
+        android:inputType="number"
+        android:maxLength="6"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <com.stripe.android.view.ExpiryDateEditText
+        android:id="@+id/expiryDateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_input"
+        android:hint="MM/YY"
+        android:inputType="number"
+        android:maxLength="5"
+        app:layout_constraintEnd_toEndOf="@+id/cardNumberEditText"
+        app:layout_constraintTop_toBottomOf="@+id/cardNumberEditText" />
+
+    <Button
+        android:id="@+id/pay"
+        android:layout_width="70dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="#1FAA59"
+        android:text="Pay"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Payable Amount"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="TextView"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView22"
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
