@@ -1,4 +1,6 @@
 ServerAPI/node_modules
+ServerAPI/.gitignore
+
 *.env
 .DS_Store
 .env.local
