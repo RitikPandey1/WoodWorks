@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 
 const { registerUser, login } = require("./src/User");
+const { addToCart, removeFromCart } = require("./src/Cart");
 
 const app = express();
 
@@ -23,6 +24,12 @@ app.use(express.json());
 
 app.post("/user/register", registerUser);
 app.post("/user/login", login);
+
+app.get("/cart/add/:pid", addToCart);
+app.get("/cart/remove/:id", removeFromCart);
+app.get("/cart/item/:id/qty/:op", addToCart);
+
+
 
 app.listen(process.env.PORT, () =>
   console.log(`-- server running PORT:${process.env.PORT} ....`)

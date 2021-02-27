@@ -15,6 +15,7 @@ import com.google.gson.JsonObject;
 
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +31,7 @@ public class SignupActivity extends AppCompatActivity {
     EditText address;
     EditText password;
     EditText avatarCode;
+    CircleImageView img;
     String code;
     Button signUp;
     String token;
@@ -62,13 +64,53 @@ public class SignupActivity extends AppCompatActivity {
         mobile=findViewById(R.id.mobileS);
         address=findViewById(R.id.addressS);
         password=findViewById(R.id.passwordS);
-        avatarCode=findViewById(R.id.avatarCS);
+//        avatarCode=findViewById(R.id.avatarCS);
+        img=findViewById(R.id.img);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),AvatarActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         signUp=findViewById(R.id.signUp);
         if(getIntent().getExtras()==null){
             code="0";
         }else {
             code=getIntent().getExtras().getString("code");
         }
+        setDefInt("avatarCode", Integer.valueOf(code));
+        if(getDefInt("avatarCode")!=0) {
+            img.setBackgroundResource(R.drawable.wcolor);
+            switch (getDefInt("avatarCode")) {
+                case 1:
+                    img.setImageResource(R.drawable.avatar1);
+                    break;
+                case 2:
+                    img.setImageResource(R.drawable.avatar2);
+                    break;
+                case 3:
+                    img.setImageResource(R.drawable.ladka);
+                    break;
+                case 4:
+                    img.setImageResource(R.drawable.avatar4);
+                    break;
+                case 5:
+                    img.setImageResource(R.drawable.avatar5);
+                    break;
+                case 6:
+                    img.setImageResource(R.drawable.avatar6);
+                    break;
+                case 7:
+                    img.setImageResource(R.drawable.avatar7);
+                    break;
+                case 8:
+                    img.setImageResource(R.drawable.avatar8);
+                    break;
+            }
+        }
+        if(code.equals("0"))
 
 
         Log.i("code on signup",code);

@@ -13,9 +13,9 @@
         <activity android:name=".SignupActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".PaymentActivity" />
+        <activity android:name=".FragmentActivity" />
         <activity android:name=".AvatarActivity" />
-        <activity android:name=".FragmentActivity">
+        <activity android:name=".PaymentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
