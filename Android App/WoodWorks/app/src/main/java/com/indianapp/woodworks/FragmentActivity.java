@@ -36,10 +36,11 @@ public class FragmentActivity extends AppCompatActivity {
                         fragment = new CartFrag();
                         break;
                     case R.id.history:
-                        fragment = new PrevOrderFrag();
+
+                        fragment = new ProfileFrag();
                         break;
                     case R.id.donate:
-                        fragment = new ProfileFrag();
+                        fragment = new PrevOrderFrag();
                         break;
 
                 }
