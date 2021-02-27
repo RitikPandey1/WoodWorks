@@ -55,7 +55,7 @@ public class TableFrag extends Fragment {
         urls.add("https://sid-3d-viewer.netlify.app/");
         names.add("chair");
         names.add("chair");
-        adapter = new HomeItemAdapter(prices,names,urls);
+        adapter = new HomeItemAdapter(getActivity(),prices,names,urls);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2,GridLayoutManager.VERTICAL,false);
         tableData.setLayoutManager(gridLayoutManager);
         tableData.setAdapter(adapter);

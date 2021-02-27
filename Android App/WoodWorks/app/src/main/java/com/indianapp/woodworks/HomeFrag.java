@@ -1,10 +1,13 @@
 package com.indianapp.woodworks;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 
 public class HomeFrag extends Fragment {
     View rootView;
+    TextView name;
 
     ConstraintLayout tablec;
     ImageView tableH;
@@ -35,6 +39,27 @@ public class HomeFrag extends Fragment {
     ConstraintLayout lampc;
     ImageView lampH;
     ImageView lampbH;
+    SharedPreferences preferences;
+    public void setDefaults(String key, String value) {
+        preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
+    public void setDefInt(String key, Integer value){
+        preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(key, value);
+        editor.commit();
+    }
+    public Integer getDefInt(String key) {
+        SharedPreferences preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
+        return preferences.getInt(key, 0);
+    }
+    public String getDefaults(String key) {
+        SharedPreferences preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
+        return preferences.getString(key, "null");
+    }
 
 
 
@@ -48,6 +73,8 @@ public class HomeFrag extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        name=getActivity().findViewById(R.id.nameHome);
+        name.setText(getDefaults("name"));
 
         getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.catfrag, new TableFrag()).commit();
         tablec=getActivity().findViewById(R.id.tablec);

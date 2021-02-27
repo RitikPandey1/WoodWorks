@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/namepro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -38,6 +38,7 @@
         android:layout_marginBottom="20dp"
         android:background="@drawable/ic_button"
         android:fontFamily="@font/montserrat_bold"
+        android:onClick="logout"
         android:text="Log Out"
         android:textColor="@color/white"
         android:textSize="25sp"
@@ -55,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/emailHome"
         app:srcCompat="@drawable/l" />
 
     <TextView
@@ -85,7 +86,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/addreshome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="75dp"
@@ -112,7 +113,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/emailHome"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -124,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/numberHme"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -142,7 +143,7 @@
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/numberHme"
         app:srcCompat="@drawable/l" />
 
 

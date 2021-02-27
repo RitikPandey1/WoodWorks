@@ -43,7 +43,7 @@ public class LampFrag extends Fragment {
         names.add("lamp");
         names.add("lamp");
 
-        adapter = new HomeItemAdapter(prices,names,urls);
+        adapter = new HomeItemAdapter(getActivity(),prices,names,urls);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2,GridLayoutManager.VERTICAL,false);
         tableData.setLayoutManager(gridLayoutManager);
         tableData.setAdapter(adapter);

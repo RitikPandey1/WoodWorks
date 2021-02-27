@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.google.gson.JsonObject;
 
@@ -35,6 +36,7 @@ public class SignupActivity extends AppCompatActivity {
     String code;
     Button signUp;
     String token;
+    ImageView backS;
     public void setDefaults(String key, String value) {
         preferences = this.getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
@@ -64,6 +66,13 @@ public class SignupActivity extends AppCompatActivity {
         mobile=findViewById(R.id.mobileS);
         address=findViewById(R.id.addressS);
         password=findViewById(R.id.passwordS);
+        backS=findViewById(R.id.backSi);
+        backS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 //        avatarCode=findViewById(R.id.avatarCS);
         img=findViewById(R.id.img);
         img.setOnClickListener(new View.OnClickListener() {
@@ -121,12 +130,6 @@ public class SignupActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                name
-//                        email
-//                mobileNo
-//                        address
-//                password
-//                avatar Code
                 Log.i("message","pressed");
                 HashMap<String,String> map = new HashMap<>();
 //                map.put("name", String.valueOf(name.getText()));
@@ -137,12 +140,19 @@ public class SignupActivity extends AppCompatActivity {
                 //map.put("password",String.valueOf(password.getText()));
 
 
+
                 map.put("name", "tushar");
                 map.put("password","1234");
                 map.put("email", "tjain210@gmail.com");
                 map.put("mobileNo", "9873450282");
                 map.put("address", "h.no.1 huh");
                 map.put("avatarCode","2");
+
+                setDefaults("name",String.valueOf(name.getText()));
+                setDefaults("address",String.valueOf(address.getText()));
+                setDefaults("mobileNo",String.valueOf(mobile.getText()));
+
+                setDefaults("email",String.valueOf(email.getText()));
 
                 Call<JsonObject> call =client.executeSignup(map);
                 call.enqueue(new Callback<JsonObject>() {
@@ -151,8 +161,13 @@ public class SignupActivity extends AppCompatActivity {
                         Log.i("message", String.valueOf(response.body().get("data")));
                         token=String.valueOf(response.body().get("data"));
                         setDefaults("_id",token);
+
                         Log.i("message", String.valueOf(response.isSuccessful()));
                         Log.i("message", String.valueOf(response.code()));
+                        Intent intent = new Intent(getApplicationContext(),FragmentActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
+                        finish();
                     }
 
                     @Override
@@ -165,7 +180,6 @@ public class SignupActivity extends AppCompatActivity {
     }
     public void signup(View View){
         Intent intent = new Intent(getApplicationContext(),FragmentActivity.class);
-//        setDefaults("username","tush",this);
         startActivity(intent);
         overridePendingTransition(R.anim.left_to_right1,R.anim.righ_to_left1);
         finish();

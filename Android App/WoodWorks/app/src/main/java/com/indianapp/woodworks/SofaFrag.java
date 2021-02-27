@@ -42,7 +42,7 @@ public class SofaFrag extends Fragment {
         names.add("sofa0");
         names.add("sofa");
 
-        adapter = new HomeItemAdapter(prices,names,urls);
+        adapter = new HomeItemAdapter(getActivity(),prices,names,urls);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2,GridLayoutManager.VERTICAL,false);
         tableData.setLayoutManager(gridLayoutManager);
         tableData.setAdapter(adapter);

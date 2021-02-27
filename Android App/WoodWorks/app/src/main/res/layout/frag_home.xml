@@ -211,11 +211,11 @@
         app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/nameHome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_bold"
-        android:text="Tushar Jain"
+        android:text="Name"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
