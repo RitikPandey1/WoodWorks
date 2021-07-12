@@ -27,42 +27,47 @@ public class ProfileFrag extends Fragment {
     TextView email;
     TextView address;
     TextView phone;
+
     public void setDefaults(String key, String value) {
         preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(key, value);
         editor.commit();
     }
-    public void setDefInt(String key, Integer value){
+
+    public void setDefInt(String key, Integer value) {
         preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putInt(key, value);
         editor.commit();
     }
+
     public Integer getDefInt(String key) {
         SharedPreferences preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
         return preferences.getInt(key, 0);
     }
+
     public String getDefaults(String key) {
         SharedPreferences preferences = getActivity().getSharedPreferences("com.indianapp.woodworks", Context.MODE_PRIVATE);
         return preferences.getString(key, "null");
     }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView= inflater.inflate(R.layout.frag_profile,container,false);
+        rootView = inflater.inflate(R.layout.frag_profile, container, false);
         return rootView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        imgP=getActivity().findViewById(R.id.imgP);
-        logout=getActivity().findViewById(R.id.button2);
-        name=getActivity().findViewById(R.id.namepro);
-        email=getActivity().findViewById(R.id.emailHome);
-        address=getActivity().findViewById(R.id.addreshome);
-        phone=getActivity().findViewById(R.id.numberHme);
+        imgP = getActivity().findViewById(R.id.imgP);
+        logout = getActivity().findViewById(R.id.button2);
+        name = getActivity().findViewById(R.id.namepro);
+        email = getActivity().findViewById(R.id.emailHome);
+        address = getActivity().findViewById(R.id.addreshome);
+        phone = getActivity().findViewById(R.id.numberHme);
         name.setText(getDefaults("name"));
         email.setText(getDefaults("email"));
         phone.setText(getDefaults("mobileNo"));
@@ -70,20 +75,20 @@ public class ProfileFrag extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setDefaults("_id","null");
-                setDefaults("name","null");
-                setDefaults("address","null");
-                setDefaults("mobileNo","null");
+                setDefaults("_id", "null");
+                setDefaults("name", "null");
+                setDefaults("address", "null");
+                setDefaults("mobileNo", "null");
 
-                setDefaults("email","null");
-                setDefInt("avatarCode",0);
-                Intent intent = new Intent(getActivity(),MainActivity.class);
+                setDefaults("email", "null");
+                setDefInt("avatarCode", 0);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
-                getActivity().overridePendingTransition(0,0);
+                getActivity().overridePendingTransition(0, 0);
                 getActivity().finish();
             }
         });
-        if(getDefInt("avatarCode")!=0) {
+        if (getDefInt("avatarCode") != 0) {
             imgP.setBackgroundResource(R.drawable.circle);
             switch (getDefInt("avatarCode")) {
                 case 1:
